@@ -97,4 +97,11 @@ class CourseController extends Controller
 
         return $user->episodes;
     }
+
+    public function welcome()
+    {
+        $courses = Course::all();
+        
+        return view('client.index', ['courses' => $courses]);
+    }
 }
