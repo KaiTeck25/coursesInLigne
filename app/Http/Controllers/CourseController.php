@@ -104,4 +104,34 @@ class CourseController extends Controller
         
         return view('client.index', ['courses' => $courses]);
     }
+
+    public function allCourses()
+    {        
+        return view('client.courses');
+    }
+
+    public function login()
+    {        
+        return view('client.login');
+    }
+
+    public function contact()
+    {        
+        return view('client.contact');
+    }
+    public function courseDetails()
+    {        
+        return view('client.course-details');
+    }
+
+    public function blog()
+    {        
+        return view('client.blog');
+    }
+
+    public function blogDetails()
+    {        
+        return view('client.blog-details');
+    }
+
 }

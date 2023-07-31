@@ -23,4 +23,6 @@
     <link rel="stylesheet" href="assets/css/vendor/animation.css">
     <link rel="stylesheet" href="assets/css/vendor/jqueru-ui-min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    
 </head>
