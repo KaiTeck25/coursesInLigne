@@ -56,12 +56,19 @@
                     <div class="col-lg-6">
                         <div class="login-form-box">
                             <h3 class="mb-30">Login</h3>
-                            <form class="login-form" action="#">
+                            @if (session('status'))
+                                <div class="mb-4 font-medium text-sm text-green-600">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
                                 <div class="input-box mb--30">
-                                    <input type="text" placeholder="Username or Email" />
+                                    <input type="email" name="email" :value="old('email')" required autofocus />
                                 </div>
                                 <div class="input-box mb--30">
-                                    <input type="password" placeholder="Password" />
+                                    <input type="password" name="password" required autocomplete="current-password" />
                                 </div>
                                 <div class="comment-form-consent input-box mb--30">
                                     <input id="checkbox-1" type="checkbox" />
@@ -80,15 +87,19 @@
                     <div class="col-lg-6">
                         <div class="login-form-box">
                             <h3 class="mb-30">Register</h3>
-                            <form class="login-form" action="#">
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
                                 <div class="input-box mb--30">
-                                    <input type="text" placeholder="Full Name" />
+                                    <input type="text" name="name" :value="old('name')" required autofocus autocomplete="name"  />
                                 </div>
                                 <div class="input-box mb--30">
-                                    <input type="email" placeholder="Email" />
+                                    <input type="email" name="email" :value="old('email')" required />
                                 </div>
                                 <div class="input-box mb--30">
-                                    <input type="password" placeholder="Password" />
+                                    <input type="password" name="password" required autocomplete="new-password" />
+                                </div>
+                                <div class="input-box mb--30">
+                                    <input type="password" name="password_confirmation" required autocomplete="new-password"  />
                                 </div>
                                 <button class="rn-btn edu-btn w-100 mb--30" type="submit">
                                     <span>Register</span>
