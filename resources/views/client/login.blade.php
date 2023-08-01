@@ -62,7 +62,7 @@
                                 </div>
                             @endif
 
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('login.submit') }}">
                                 @csrf
                                 <div class="input-box mb--30">
                                     <input type="email" name="email" :value="old('email')" required autofocus />

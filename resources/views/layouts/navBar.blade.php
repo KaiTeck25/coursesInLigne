@@ -30,10 +30,25 @@
                                 <button class="white-box-icon search-trigger header-search"><i
                                         class="ri-search-line"></i></button>
                             </div>
+                            <!-- navigation.blade.php -->
+
                             <div class="quote-icon quote-user d-none d-md-block ml--15 ml_sm--5">
-                                <a class="edu-btn btn-medium left-icon header-button" href="/Login"><i
-                                        class="ri-user-line"></i>Login / Register</a>
+                                @guest <!-- Check if the user is not authenticated -->
+                                    <a class="edu-btn btn-medium left-icon header-button" href="/Login">
+                                        <i class="ri-user-line"></i>Login / Register
+                                    </a>
+                                @endguest
+
+                                @auth <!-- Check if the user is authenticated -->
+                                    <form method="post" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="edu-btn btn-medium left-icon header-button">
+                                            <i class="ri-user-line"></i>{{ Auth::user()->name }} (Logout)
+                                        </button>
+                                    </form>
+                                @endauth
                             </div>
+
                             <div class="quote-icon quote-user d-block d-md-none ml--15 ml_sm--5">
                                 <a class="white-box-icon" href="/Login"><i class="ri-user-line"></i></a>
                             </div>

@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
-
-
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -11,11 +11,18 @@ Route::get('/', [CourseController::class, 'welcome']);
 
 // Route::get('/', 'App\Http\Controllers\CourseController@welcom')->name('welcom');
 
-    // Route::get('/welcom', function () {
-    //     return Inertia\Inertia::render('welcom');
-    // })->name('welcom');
+// Route::get('/welcom', function () {
+//     return Inertia\Inertia::render('welcom');
+// })->name('welcom');
+Route::get('/login', function () {
+    return view('client.login'); // Replace 'login' with the path to your login form view
+});
 
-Route::get('/courses', 'App\Http\Controllers\CourseController@index')->name('courses.index');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.submit');
+Route::get('/', [LoginController::class, 'index'])->name('courses.index');
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+// Route::get('/courses', 'App\Http\Controllers\CourseController@index')->name('courses.index');
 Route::get('/allCourses', 'App\Http\Controllers\CourseController@allCourses')->name('courses.allCourses');
 Route::get('/Login', 'App\Http\Controllers\CourseController@login')->name('courses.login');
 Route::get('/Contact', 'App\Http\Controllers\CourseController@contact')->name('courses.contact');
