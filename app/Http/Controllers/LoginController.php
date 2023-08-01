@@ -28,7 +28,7 @@ class LoginController extends Controller
                 return redirect('/dashboard');
             } else {
                 // Regular user
-                return redirect('/');
+                return view('client.index');
             }
         } else {
             // Authentication failed

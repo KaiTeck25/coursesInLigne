@@ -90,13 +90,13 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="input-box mb--30">
-                                    <input type="text" name="name" :value="old('name')" required autofocus autocomplete="name"  />
+                                    <input type="text" name="name" placeholder="name" required autofocus autocomplete="name"  />
                                 </div>
                                 <div class="input-box mb--30">
-                                    <input type="email" name="email" :value="old('email')" required />
+                                    <input type="email" name="email" placeholder="email" required />
                                 </div>
                                 <div class="input-box mb--30">
-                                    <input type="password" name="password" required autocomplete="new-password" />
+                                    <input type="password" name="password" required autocomplete="new-password" placeholder="new-password" />
                                 </div>
                                 <div class="input-box mb--30">
                                     <input type="password" name="password_confirmation" required autocomplete="new-password"  />

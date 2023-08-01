@@ -30,9 +30,20 @@
                         <div class="quote-icon quote-search">
                             <button class="search-trigger"><i class="ri-search-line"></i></button>
                         </div>
-                        <div class="quote-icon quote-user">
-                            <a href="/Login"><i class="ri-user-line"></i></a>
-                        </div>
+                        @guest
+                            <div class="quote-icon quote-user">
+                                <a href="/login"><i class="ri-user-line"></i></a>
+                            </div>
+                        @endguest
+
+                        @auth <!-- Check if the user is authenticated -->
+                            <form method="post" action="{{ route('logout') }}">
+                                @csrf
+                                <div class="quote-icon quote-user">
+                                    <button type="submit">{{ Auth::user()->name }} <i class="ri-user-line"></i>(Logout)</button>
+                                </div>
+                            </form>
+                        @endauth
                         <div class="hamberger quote-icon d-block d-xl-none">
                             <button class="hamberger-button"><i class="ri-menu-line"></i></button>
                         </div>
