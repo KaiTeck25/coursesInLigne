@@ -53,7 +53,11 @@ class CourseController extends Controller
     public function store(StoreCourseWithEpisodes $request)
     {
         $course = Course::create($request->all());
-
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
+            // Now you can use the $path to save the image path to the database or perform any other operations.
+        }
+        dd($request);
         foreach($request->input('episodes') as $episode)
         {
             $episode['course_id'] = $course->id;

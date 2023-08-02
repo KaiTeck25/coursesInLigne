@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Admin Dashboard 
+                Admin Dashboard
             </h2>
         </template>
 
@@ -66,6 +66,13 @@
                             $page.errors['episodes.' + index + '.video_url'][0] }}</div>
 
                     </div>
+                    <div class="my-4">
+                        <label for="image" class="block mb-2 text-sm font-bold text-gray-700">Upload Image</label>
+                        <input type="file" id="image" accept="image/*" @change="onImageChange" />
+                        <div v-if="imagePreview">
+                            <img :src="imagePreview" alt="Image Preview" class="mt-2 max-h-48" />
+                        </div>
+                    </div>
 
                     <button class="px-4 py-2 my-4 font-bold text-white bg-green-500 rounded hover:bg-green-700"
                         v-if="form.episodes.length < 15" @click.prevent="add">
@@ -101,12 +108,30 @@ export default {
                     { title: null, description: null, video_url: null }
                 ]
             },
+            imagePreview: null,
         }
     },
 
     methods: {
-        submit() {
-            this.$inertia.post('/courses', this.form);
+        async submit() {
+            const formData = new FormData();
+            formData.append('title', this.form.title);
+            formData.append('description', this.form.description);
+            formData.append('image', this.form.image); // Add the image to the form data
+
+            // Loop through episodes and append them to the form data
+            this.form.episodes.forEach((episode, index) => {
+                formData.append(`episodes[${index}][title]`, episode.title);
+                formData.append(`episodes[${index}][description]`, episode.description);
+                formData.append(`episodes[${index}][video_url]`, episode.video_url);
+            });
+
+            // Use Inertia's post method with the FormData object
+            await this.$inertia.post('/courses', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data', // Set the correct Content-Type for the FormData
+                },
+            });
         },
 
         add() {
@@ -121,7 +146,12 @@ export default {
             let className = index > 0 ? 'mt-10' : '';
 
             return className;
-        }
+        },
+        onImageChange(event) {
+            const file = event.target.files[0];
+            this.form.image = file;
+            this.imagePreview = URL.createObjectURL(file);
+        },
     }
 }
 </script>
