@@ -5,20 +5,25 @@
         </template>
         <div class="max-w-7xl py-6 mx-auto sm:px-6 lg:px-8">
             <div class="text-3xl mb-3">{{ course.episodes[this.currentKey].title }}</div>
-            <iframe class="w-full h-screen" :src="course.episodes[this.currentKey].video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="w-full h-screen" :src="course.episodes[this.currentKey].video_url" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="text-sm text-gray-500 my-3">{{ course.episodes[this.currentKey].description }}</div>
+            <div class="my-3">
+                <img v-if="course.episodes[this.currentKey].path" :src="getImageUrl(course.episodes[this.currentKey].path)"
+                    alt="Episode Image" class="max-h-96 mx-auto" />
+            </div>
             <div class="py-6">
-                <progress-bar :watched-episodes="watched" :episodes="course.episodes"/>
+                <progress-bar :watched-episodes="watched" :episodes="course.episodes" />
             </div>
             <div class="mt-6">
                 <ul v-for="(episode, index) in course.episodes" v-bind:key="episode.id">
                     <li class="mt-3 flex justify-between items-center">
                         <div>
-                        Épisode n°{{ index + 1 }} - {{ episode.title }}
-                        <button class="text-gray-500 focus:text-indigo-500 focus:outline-none"
-                        @click="switchEpisode(index)">Voir l'épisode</button>
+                            Épisode n°{{ index + 1 }} - {{ episode.title }}
+                            <button class="text-gray-500 focus:text-indigo-500 focus:outline-none"
+                                @click="switchEpisode(index)">Voir l'épisode</button>
                         </div>
-                        <progress-button :episode-id="episode.id" :watched-episodes="watched"/>
+                        <progress-button :episode-id="episode.id" :watched-episodes="watched" />
                     </li>
                 </ul>
             </div>
@@ -56,6 +61,9 @@ export default {
                 left: 0,
                 behavior: 'smooth'
             });
+        },
+        getImageUrl(path) {
+            return '/storage/' + path; // Assuming images are stored in the "storage/app/public" directory
         }
     }
 }

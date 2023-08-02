@@ -3493,6 +3493,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -3516,6 +3521,9 @@ __webpack_require__.r(__webpack_exports__);
         left: 0,
         behavior: 'smooth'
       });
+    },
+    getImageUrl: function getImageUrl(path) {
+      return '/storage/' + path; // Assuming images are stored in the "storage/app/public" directory
     }
   }
 });
@@ -27760,6 +27768,20 @@ var render = function() {
           _vm._v(_vm._s(_vm.course.episodes[this.currentKey].description))
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "my-3" }, [
+          _vm.course.episodes[this.currentKey].path
+            ? _c("img", {
+                staticClass: "max-h-96 mx-auto",
+                attrs: {
+                  src: _vm.getImageUrl(
+                    _vm.course.episodes[this.currentKey].path
+                  ),
+                  alt: "Episode Image"
+                }
+              })
+            : _vm._e()
+        ]),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "py-6" },
@@ -27785,11 +27807,11 @@ var render = function() {
                 [
                   _c("div", [
                     _vm._v(
-                      "\n                    Épisode n°" +
+                      "\n                        Épisode n°" +
                         _vm._s(index + 1) +
                         " - " +
                         _vm._s(episode.title) +
-                        "\n                    "
+                        "\n                        "
                     ),
                     _c(
                       "button",

@@ -67,6 +67,8 @@ class CourseController extends Controller
         if (count($episodes) > 0 && isset($episodes[0]['path']) && !empty($episodes[0]['path'])) {
             // Instead of setting the 'path' directly, use the file path obtained above
             $episodes[0]['path'] = $path;
+        } else {
+            dd('No path found or empty in the first episode.'); // Debugging statement
         }
 
         foreach ($episodes as $episode) {
@@ -74,7 +76,7 @@ class CourseController extends Controller
             Episode::create($episode);
         }
 
-        dd($request);
+        // dd($request);
 
         return Redirect::route('courses.index')->with('success', 'Félicitations, votre formation a bien été postée.');
     }
