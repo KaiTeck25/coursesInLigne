@@ -13,26 +13,27 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\StoreCourseWithEpisodes;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
-    
+
     public function index()
     {
         $courses = Course::with('user')
-        ->select('courses.*', DB::raw(
-            '(SELECT COUNT(DISTINCT(user_id))
+            ->select('courses.*', DB::raw(
+                '(SELECT COUNT(DISTINCT(user_id))
             FROM completions
             INNER JOIN episodes ON completions.episode_id = episodes.id
             WHERE episodes.course_id = courses.id
             ) AS participants'
-        ))->addSelect(DB::raw(
-            '(SELECT SUM(duration)
+            ))->addSelect(DB::raw(
+                '(SELECT SUM(duration)
             FROM episodes
             WHERE episodes.course_id = courses.id
             ) AS total_duration'
-        ))
-        ->withCount('episodes')->latest()->paginate(5);
+            ))
+            ->withCount('episodes')->latest()->paginate(5);
 
         return Inertia::render('Courses/Index', [
             'courses' => $courses
@@ -53,20 +54,34 @@ class CourseController extends Controller
     public function store(StoreCourseWithEpisodes $request)
     {
         $course = Course::create($request->all());
+
+        // Store the uploaded image and get its path
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');
-            // Now you can use the $path to save the image path to the database or perform any other operations.
+        } else {
+            $path = ''; // Set a default value for the path if no image is uploaded.
         }
-        dd($request);
-        foreach($request->input('episodes') as $episode)
-        {
+
+        // Update the 'path' value for the first episode with the original name
+        $episodes = $request->input('episodes');
+        if (count($episodes) > 0 && isset($episodes[0]['path']) && !empty($episodes[0]['path'])) {
+            // Instead of setting the 'path' directly, use the file path obtained above
+            $episodes[0]['path'] = $path;
+        }
+
+        foreach ($episodes as $episode) {
             $episode['course_id'] = $course->id;
-            // $episode['duration'] = $ytb->handleYoutubeVideoDuration($episode['video_url']);
             Episode::create($episode);
         }
 
+        dd($request);
+
         return Redirect::route('courses.index')->with('success', 'Félicitations, votre formation a bien été postée.');
     }
+
+
+
+
 
     public function edit(int $id)
     {
@@ -85,7 +100,7 @@ class CourseController extends Controller
         $course->update($request->all());
         $course->episodes()->delete();
 
-        foreach($request->episodes as $episode) {
+        foreach ($request->episodes as $episode) {
             $episode['course_id'] = $course->id;
             Episode::create($episode);
         }
@@ -106,37 +121,36 @@ class CourseController extends Controller
     public function welcome()
     {
         $courses = Course::all();
-        
+
         return view('client.index', ['courses' => $courses]);
     }
 
     public function allCourses()
-    {        
+    {
         return view('client.courses');
     }
 
     public function login()
-    {        
+    {
         return view('client.login');
     }
 
     public function contact()
-    {        
+    {
         return view('client.contact');
     }
     public function courseDetails()
-    {        
+    {
         return view('client.course-details');
     }
 
     public function blog()
-    {        
+    {
         return view('client.blog');
     }
 
     public function blogDetails()
-    {        
+    {
         return view('client.blog-details');
     }
-
 }

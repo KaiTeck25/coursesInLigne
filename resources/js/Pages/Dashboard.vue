@@ -124,7 +124,13 @@ export default {
                 formData.append(`episodes[${index}][title]`, episode.title);
                 formData.append(`episodes[${index}][description]`, episode.description);
                 formData.append(`episodes[${index}][video_url]`, episode.video_url);
+                formData.append(`episodes[${index}][path]`, ''); // Set path to an empty string for each episode
             });
+
+            // Add the original name of the image to the first episode's 'path'
+            if (this.form.image instanceof File) {
+                formData.append(`episodes[0][path]`, this.form.image.name);
+            }
 
             // Use Inertia's post method with the FormData object
             await this.$inertia.post('/courses', formData, {

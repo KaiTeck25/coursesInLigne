@@ -3672,10 +3672,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   formData.append("episodes[".concat(index, "][title]"), episode.title);
                   formData.append("episodes[".concat(index, "][description]"), episode.description);
                   formData.append("episodes[".concat(index, "][video_url]"), episode.video_url);
-                }); // Use Inertia's post method with the FormData object
+                  formData.append("episodes[".concat(index, "][path]"), ''); // Set path to an empty string for each episode
+                }); // Add the original name of the image to the first episode's 'path'
 
 
-                _context.next = 7;
+                if (_this.form.image instanceof File) {
+                  formData.append("episodes[0][path]", _this.form.image.name);
+                } // Use Inertia's post method with the FormData object
+
+
+                _context.next = 8;
                 return _this.$inertia.post('/courses', formData, {
                   headers: {
                     'Content-Type': 'multipart/form-data' // Set the correct Content-Type for the FormData
@@ -3683,7 +3689,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-              case 7:
+              case 8:
               case "end":
                 return _context.stop();
             }

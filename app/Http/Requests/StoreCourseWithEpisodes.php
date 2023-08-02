@@ -26,6 +26,7 @@ class StoreCourseWithEpisodes extends FormRequest
         return [
             'title' => ['required', 'max:255'],
             'description' => ['required', 'max:255'],
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'episodes' => ['required', 'array', 'min:1', 'max:15'],
             'episodes.*.title' => ['required'],
             'episodes.*.description' => ['required'],
