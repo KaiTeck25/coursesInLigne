@@ -26,6 +26,14 @@
 
                     <div class="mt-2 text-red-600" v-if="$page.errors.description">{{ $page.errors.description[0] }}</div>
 
+                    <div class="my-4">
+                        <label for="image" class="block mb-2 text-sm font-bold text-gray-700">Upload Image </label>
+                        <input type="file" id="image" accept="image/*" @change="onImageChange" />
+                        <div v-if="imagePreview">
+                            <img :src="imagePreview" alt="Image Preview" class="mt-2 max-h-48" />
+                        </div>
+                    </div>
+
                     <h3 class="my-4 text-2xl text-pink-800">Episodes de la formation</h3>
 
                     <div class="mb-4 text-red-600" v-if="$page.errors.episodes">
@@ -66,13 +74,6 @@
                             $page.errors['episodes.' + index + '.video_url'][0] }}</div>
 
                     </div>
-                    <div class="my-4">
-                        <label for="image" class="block mb-2 text-sm font-bold text-gray-700">Upload Image</label>
-                        <input type="file" id="image" accept="image/*" @change="onImageChange" />
-                        <div v-if="imagePreview">
-                            <img :src="imagePreview" alt="Image Preview" class="mt-2 max-h-48" />
-                        </div>
-                    </div>
 
                     <button class="px-4 py-2 my-4 font-bold text-white bg-green-500 rounded hover:bg-green-700"
                         v-if="form.episodes.length < 15" @click.prevent="add">
@@ -106,7 +107,9 @@ export default {
                 description: null,
                 episodes: [
                     { title: null, description: null, video_url: null }
-                ]
+                ],
+                image: null, // Image file
+                path: '',    // Path for the image
             },
             imagePreview: null,
         }
@@ -115,21 +118,22 @@ export default {
     methods: {
         async submit() {
             const formData = new FormData();
+            
+            // Add course data
             formData.append('title', this.form.title);
             formData.append('description', this.form.description);
-            formData.append('image', this.form.image); // Add the image to the form data
+            formData.append('path', this.form.path); // Add the path for the image
 
             // Loop through episodes and append them to the form data
             this.form.episodes.forEach((episode, index) => {
                 formData.append(`episodes[${index}][title]`, episode.title);
                 formData.append(`episodes[${index}][description]`, episode.description);
                 formData.append(`episodes[${index}][video_url]`, episode.video_url);
-                formData.append(`episodes[${index}][path]`, ''); // Set path to an empty string for each episode
             });
 
-            // Add the original name of the image to the first episode's 'path'
+            // Add the image to the form data
             if (this.form.image instanceof File) {
-                formData.append(`episodes[0][path]`, this.form.image.name);
+                formData.append('image', this.form.image);
             }
 
             // Use Inertia's post method with the FormData object
@@ -156,8 +160,10 @@ export default {
         onImageChange(event) {
             const file = event.target.files[0];
             this.form.image = file;
+            this.form.path = file.name; // Set the path for the course
             this.imagePreview = URL.createObjectURL(file);
         },
     }
 }
 </script>
+

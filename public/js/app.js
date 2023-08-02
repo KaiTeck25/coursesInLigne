@@ -3641,6 +3641,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3655,7 +3656,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           title: null,
           description: null,
           video_url: null
-        }]
+        }],
+        image: null,
+        // Image file
+        path: '' // Path for the image
+
       },
       imagePreview: null
     };
@@ -3670,22 +3675,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                formData = new FormData();
+                formData = new FormData(); // Add course data
+
                 formData.append('title', _this.form.title);
                 formData.append('description', _this.form.description);
-                formData.append('image', _this.form.image); // Add the image to the form data
+                formData.append('path', _this.form.path); // Add the path for the image
                 // Loop through episodes and append them to the form data
 
                 _this.form.episodes.forEach(function (episode, index) {
                   formData.append("episodes[".concat(index, "][title]"), episode.title);
                   formData.append("episodes[".concat(index, "][description]"), episode.description);
                   formData.append("episodes[".concat(index, "][video_url]"), episode.video_url);
-                  formData.append("episodes[".concat(index, "][path]"), ''); // Set path to an empty string for each episode
-                }); // Add the original name of the image to the first episode's 'path'
+                }); // Add the image to the form data
 
 
                 if (_this.form.image instanceof File) {
-                  formData.append("episodes[0][path]", _this.form.image.name);
+                  formData.append('image', _this.form.image);
                 } // Use Inertia's post method with the FormData object
 
 
@@ -3722,6 +3727,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     onImageChange: function onImageChange(event) {
       var file = event.target.files[0];
       this.form.image = file;
+      this.form.path = file.name; // Set the path for the course
+
       this.imagePreview = URL.createObjectURL(file);
     }
   }
@@ -27983,6 +27990,31 @@ var render = function() {
                   ])
                 : _vm._e(),
               _vm._v(" "),
+              _c("div", { staticClass: "my-4" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "block mb-2 text-sm font-bold text-gray-700",
+                    attrs: { for: "image" }
+                  },
+                  [_vm._v("Upload Image ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "file", id: "image", accept: "image/*" },
+                  on: { change: _vm.onImageChange }
+                }),
+                _vm._v(" "),
+                _vm.imagePreview
+                  ? _c("div", [
+                      _c("img", {
+                        staticClass: "mt-2 max-h-48",
+                        attrs: { src: _vm.imagePreview, alt: "Image Preview" }
+                      })
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
               _c("h3", { staticClass: "my-4 text-2xl text-pink-800" }, [
                 _vm._v("Episodes de la formation")
               ]),
@@ -28148,31 +28180,6 @@ var render = function() {
                     : _vm._e()
                 ])
               }),
-              _vm._v(" "),
-              _c("div", { staticClass: "my-4" }, [
-                _c(
-                  "label",
-                  {
-                    staticClass: "block mb-2 text-sm font-bold text-gray-700",
-                    attrs: { for: "image" }
-                  },
-                  [_vm._v("Upload Image")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "file", id: "image", accept: "image/*" },
-                  on: { change: _vm.onImageChange }
-                }),
-                _vm._v(" "),
-                _vm.imagePreview
-                  ? _c("div", [
-                      _c("img", {
-                        staticClass: "mt-2 max-h-48",
-                        attrs: { src: _vm.imagePreview, alt: "Image Preview" }
-                      })
-                    ])
-                  : _vm._e()
-              ]),
               _vm._v(" "),
               _vm.form.episodes.length < 15
                 ? _c(
@@ -44536,8 +44543,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /opt/lampp/htdocs/coursesInLigne/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/coursesInLigne/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /Users/macbookpro/Desktop/coursesInLigne/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/macbookpro/Desktop/coursesInLigne/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

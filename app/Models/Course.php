@@ -12,7 +12,7 @@ class Course extends Model
 {
     use HasFactory, Authorizable;
 
-    protected $fillable = ['title', 'description', 'user_id'];
+    protected $fillable = ['title', 'description', 'user_id', 'path'];
 
     protected $appends = ['update'];
 

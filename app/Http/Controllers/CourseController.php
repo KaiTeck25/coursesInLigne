@@ -51,39 +51,35 @@ class CourseController extends Controller
         ]);
     }
 
-    public function store(StoreCourseWithEpisodes $request)
+    public function store(Request $request)
     {
-        $course = Course::create($request->all());
-
+        $courseData = $request->except('episodes', 'image'); // Get course data without episodes and image
+    
         // Store the uploaded image and get its path
+        $path = '';
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');
-        } else {
-            $path = ''; // Set a default value for the path if no image is uploaded.
         }
-
-        // Update the 'path' value for the first episode with the original name
+        
+        // Update the course data with the image path
+        $courseData['path'] = $path ? $path : 'images/noImage.jpeg';
+        // dd($courseData);
+        // Create the course
+        $course = Course::create($courseData);
+        // dd($course);
+        // Get episodes from the request
         $episodes = $request->input('episodes');
-        if (count($episodes) > 0 && isset($episodes[0]['path']) && !empty($episodes[0]['path'])) {
-            // Instead of setting the 'path' directly, use the file path obtained above
-            $episodes[0]['path'] = $path;
-        } else {
-            dd('No path found or empty in the first episode.'); // Debugging statement
-        }
-
+    
+        // Create episodes associated with the course
         foreach ($episodes as $episode) {
             $episode['course_id'] = $course->id;
             Episode::create($episode);
         }
-
-        // dd($request);
-
-        return Redirect::route('courses.index')->with('success', 'Félicitations, votre formation a bien été postée.');
+    
+        return redirect()->route('courses.index')->with('success', 'Félicitations, votre formation a bien été postée.');
     }
-
-
-
-
+    
+    
 
     public function edit(int $id)
     {
