@@ -460,10 +460,11 @@
                                                 src="{{ asset('storage/'. $course->path) }}" 
                                                 style="width: 370px; height: 270px; object-fit: cover;" alt="Course Images">
                                                 
-                                            <a href="https://www.youtube.com/watch?v=pNje3bWz7V8"
+                                            <a href="{{ $firstEpisodeVideoUrl }}"
                                                 class="video-play-btn position-to-top video-popup-activation">
                                                 <span class="play-icon course-details-video-popup"></span>
                                             </a>
+                                            
                                         </div>
                                     </div>
                                     <div class="eduvibe-widget-details mt--35">

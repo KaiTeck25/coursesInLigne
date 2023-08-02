@@ -147,9 +147,15 @@ class CourseController extends Controller
         // Récupérer le cours avec l'ID correspondant
         $course = Course::findOrFail($courseId);
     
-        // Récupérer l'URL de la vidéo du premier épisode s'il existe
-        $firstEpisodeVideoUrl = $course->episodes->isNotEmpty() ? $course->episodes->first()->video_url : null;
-    
+        // Vérifier si la collection d'épisodes est vide
+        if ($course->episodes->isEmpty()) {
+            $firstEpisodeVideoUrl = null;
+        } else {
+            // Récupérer l'URL de la vidéo du premier épisode s'il existe
+            $firstEpisode = $course->episodes->first();
+            $firstEpisodeVideoUrl = $firstEpisode->video_url ?? null;
+        }
+        // dd($firstEpisodeVideoUrl);
         return view('client.course-details', compact('course', 'firstEpisodeVideoUrl'));
     }
 
