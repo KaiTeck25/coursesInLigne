@@ -125,7 +125,9 @@ class CourseController extends Controller
 
     public function allCourses()
     {
-        return view('client.courses');
+        $courses = Course::all();
+
+        return view('client.courses', ['courses' => $courses]);
     }
 
     public function login()
@@ -137,9 +139,18 @@ class CourseController extends Controller
     {
         return view('client.contact');
     }
-    public function courseDetails()
+
+    public function courseDetails(Request $request)
     {
-        return view('client.course-details');
+        $courseId = $request->query('id'); // Récupérer l'ID du cours depuis la requête
+
+        // Récupérer le cours avec l'ID correspondant
+        $course = Course::findOrFail($courseId);
+    
+        // Récupérer l'URL de la vidéo du premier épisode s'il existe
+        $firstEpisodeVideoUrl = $course->episodes->isNotEmpty() ? $course->episodes->first()->video_url : null;
+    
+        return view('client.course-details', compact('course', 'firstEpisodeVideoUrl'));
     }
 
     public function blog()

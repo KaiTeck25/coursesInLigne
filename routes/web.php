@@ -37,7 +37,7 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/courses', 'App\Http\Controllers\CourseController@index')->name('courses.index');
 Route::get('/allCourses', 'App\Http\Controllers\CourseController@allCourses')->name('courses.allCourses');
 Route::get('/Contact', 'App\Http\Controllers\CourseController@contact')->name('courses.contact');
-Route::get('/course-details', 'App\Http\Controllers\CourseController@courseDetails')->name('courses.course-details');
+Route::get('/course-details', 'App\Http\Controllers\CourseController@courseDetails')->name('courses.details');
 Route::get('/Blog', 'App\Http\Controllers\CourseController@blog')->name('courses.blog');
 Route::get('/blog-details', 'App\Http\Controllers\CourseController@blogDetails')->name('courses.blog-details');
 

@@ -55,7 +55,8 @@
                 <div class="row g-5">
                     <div class="col-lg-12">
                         <div class="main-image thumbnail">
-                            <img class="radius-small" src="assets/images/course/course-details/course-02.jpg"
+                            <img class="radius-small" src="{{ asset('storage/'. $course->path) }}"
+                            style="width: 1300px; height: 700px; object-fit: cover;"
                                 alt="Banner Images">
                         </div>
                     </div>
@@ -456,7 +457,9 @@
                                     <div class="video-area">
                                         <div class="thumbnail video-popup-wrapper">
                                             <img class="radius-small w-100"
-                                                src="assets/images/course/video-bg/course-02.jpg" alt="Course Images">
+                                                src="{{ asset('storage/'. $course->path) }}" 
+                                                style="width: 370px; height: 270px; object-fit: cover;" alt="Course Images">
+                                                
                                             <a href="https://www.youtube.com/watch?v=pNje3bWz7V8"
                                                 class="video-play-btn position-to-top video-popup-activation">
                                                 <span class="play-icon course-details-video-popup"></span>
@@ -499,15 +502,15 @@
                                             </ul>
 
                                             <div class="read-more-btn mt--45">
-                                                <a class="edu-btn btn-bg-alt w-100 text-center" href="#">Price:
+                                                <a class="text-center edu-btn btn-bg-alt w-100" href="#">Price:
                                                     $79.00</a>
                                             </div>
 
                                             <div class="read-more-btn mt--15">
-                                                <a class="edu-btn w-100 text-center" href="#">Buy Now</a>
+                                                <a class="text-center edu-btn w-100" href="#">Buy Now</a>
                                             </div>
 
-                                            <div class="read-more-btn mt--30 text-center">
+                                            <div class="text-center read-more-btn mt--30">
                                                 <div class="eduvibe-post-share">
                                                     <span>Share: </span>
                                                     <a class="linkedin" href="#"><i
