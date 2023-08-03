@@ -162,7 +162,6 @@
 
                                                         <ul class="episode-list">
                                                             @foreach ($episodes as $episode)
-                                                            
                                                             <li class="episode-item">
                                                                 <div class="episode-content">
                                                                     <div class="icon">

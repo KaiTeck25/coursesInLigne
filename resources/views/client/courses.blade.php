@@ -73,8 +73,6 @@
                 </div>
 
                 <div class="row g-5 mt--10">
-
-                    <!-- Start Single Card  -->
                     @foreach ($courses as $course)
                         <div class="col-12 col-sm-12 col-xl-4 col-md-6" data-sal-delay="150" data-sal="slide-up"
                             data-sal-duration="800">
@@ -126,7 +124,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 {{-- <div class="card-hover-action">
                                     <div class="hover-content">
                                         <div class="content-top">
@@ -176,13 +173,25 @@
                     <div class="col-lg-12 mt--60">
                         <nav>
                             <ul class="edu-pagination">
-                                <li><a href="#"><i class="ri-arrow-drop-left-line"></i></a></li>
-                                <li><a href="#">1</a></li>
-                                <li class="active"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">...</a></li>
-                                <li><a href="#">8</a></li>
-                                <li><a href="#"><i class="ri-arrow-drop-right-line"></i></a></li>
+                                @if ($courses->currentPage() > 1)
+                                    <li>
+                                        <a href="{{ $courses->previousPageUrl() }}">
+                                            <i class="ri-arrow-drop-left-line"></i>
+                                        </a>
+                                    </li>
+                                @endif
+
+                                @foreach(range(1, $courses->lastPage()) as $page)
+                                    @if($page == $courses->currentPage())
+                                        <li class="active"><a href="#">{{ $page }}</a></li>
+                                    @else
+                                        <li><a href="{{ $courses->url($page) }}">{{ $page }}</a></li>
+                                    @endif
+                                @endforeach
+
+                                @if ($courses->currentPage() < $courses->lastPage())
+                                    <li><a href="{{ $courses->nextPageUrl() }}"><i class="ri-arrow-drop-right-line"></i></a></li>
+                                @endif
                             </ul>
                         </nav>
                     </div>

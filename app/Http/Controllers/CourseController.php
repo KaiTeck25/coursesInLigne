@@ -120,7 +120,8 @@ class CourseController extends Controller
 
     public function allCourses()
     {
-        $courses = Course::all();
+        // $courses = Course::all();
+        $courses = Course::paginate(3);
 
         return view('client.courses', ['courses' => $courses]);
     }
