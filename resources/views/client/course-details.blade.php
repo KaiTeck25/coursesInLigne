@@ -52,7 +52,8 @@
         </div>
         <div class="edu-course-details-area edu-section-gap bg-color-white">
             <div class="container">
-                <div class="row g-5">
+
+                {{-- <div class="row g-5">
                     <div class="col-lg-12">
                         <div class="main-image thumbnail">
                             <img class="radius-small" src="{{ asset('storage/'. $course->path) }}"
@@ -60,7 +61,7 @@
                                 alt="Banner Images">
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="row g-5">
                     <div class="col-xl-8 col-lg-7">
@@ -158,44 +159,32 @@
                                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample1">
                                                     <div class="edu-accordion-body">
-                                                        <ul>
-                                                            <li>
-                                                                <div class="text"><i class="icon-draft-line"></i>
-                                                                    Introduction</div>
-                                                                <div class="icon"><i
-                                                                        class="icon-lock-password-line"></i></div>
+
+                                                        <ul class="episode-list">
+                                                            @foreach ($episodes as $episode)
+                                                            
+                                                            <li class="episode-item">
+                                                                <div class="episode-content">
+                                                                    <div class="icon">
+                                                                        <i class="icon-draft-line"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <a href="{{ $episode->video_url }}" class="position-to-top video-popup-activation">
+                                                                            <p>{{ $episode->title }}</p>
+                                                                            <span class="play-icon course-details-video-popup"></span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="lock-icon">
+                                                                    <a href="{{ $episode->video_url }}" class="video-play-btn position-to-top video-popup-activation">
+                                                                        <span class="play-icon course-details-video-popup"></span>
+                                                                    </a>
+                                                                    {{-- <i class="icon-lock-password-line"></i> --}}
+                                                                </div>
                                                             </li>
-                                                            <li>
-                                                                <div class="text"><i class="icon-draft-line"></i>
-                                                                    Course Overview</div>
-                                                                <div class="icon"><i
-                                                                        class="icon-lock-password-line"></i></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="text"><i class="icon-draft-line"></i>
-                                                                    Local Development Environment Tools</div>
-                                                                <div class="icon"><i
-                                                                        class="icon-lock-password-line"></i></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="text"><i class="icon-draft-line"></i>
-                                                                    Course Excercise</div>
-                                                                <div class="icon"><i
-                                                                        class="icon-lock-password-line"></i></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="text"><i class="icon-draft-line"></i>
-                                                                    Embedding PHP in HTML</div>
-                                                                <div class="icon"><i
-                                                                        class="icon-lock-password-line"></i></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="text"><i class="icon-draft-line"></i>
-                                                                    Using Dynamic Data</div>
-                                                                <div class="icon"><i
-                                                                        class="icon-lock-password-line"></i></div>
-                                                            </li>
+                                                            @endforeach
                                                         </ul>
+
                                                     </div>
                                                 </div>
                                             </div>

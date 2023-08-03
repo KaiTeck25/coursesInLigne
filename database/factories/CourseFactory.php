@@ -25,6 +25,7 @@ class CourseFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraphs(3, true),
+            'path' => 'noImage.jpeg',
             'user_id' => User::all()->random()->id
         ];
     }

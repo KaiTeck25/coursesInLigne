@@ -7,13 +7,9 @@ use Inertia\Inertia;
 use App\Models\Course;
 use App\Models\Episode;
 use Illuminate\Http\Request;
-use App\Youtube\YoutubeServices;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\StoreCourseWithEpisodes;
-use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -60,26 +56,25 @@ class CourseController extends Controller
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');
         }
-        
+
         // Update the course data with the image path
         $courseData['path'] = $path ? $path : 'images/noImage.jpeg';
-        // dd($courseData);
+
         // Create the course
         $course = Course::create($courseData);
-        // dd($course);
+
         // Get episodes from the request
         $episodes = $request->input('episodes');
-    
+
         // Create episodes associated with the course
         foreach ($episodes as $episode) {
             $episode['course_id'] = $course->id;
             Episode::create($episode);
         }
-    
+
         return redirect()->route('courses.index')->with('success', 'Félicitations, votre formation a bien été postée.');
     }
-    
-    
+
 
     public function edit(int $id)
     {
@@ -155,8 +150,8 @@ class CourseController extends Controller
             $firstEpisode = $course->episodes->first();
             $firstEpisodeVideoUrl = $firstEpisode->video_url ?? null;
         }
-        // dd($firstEpisodeVideoUrl);
-        return view('client.course-details', compact('course', 'firstEpisodeVideoUrl'));
+        $episodes = $course->episodes;
+        return view('client.course-details', compact('course', 'episodes', 'firstEpisodeVideoUrl'));
     }
 
     public function blog()
