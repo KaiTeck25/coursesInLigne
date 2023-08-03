@@ -531,7 +531,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-lg-12">
                         <div class="edu-course-wrapper pt--65">
                             <div class="section-title text-start mb--20">
@@ -1049,7 +1049,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 

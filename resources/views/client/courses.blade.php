@@ -127,7 +127,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card-hover-action">
+                                {{-- <div class="card-hover-action">
                                     <div class="hover-content">
                                         <div class="content-top">
                                             <div class="top-status-bar">
@@ -167,7 +167,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endforeach
