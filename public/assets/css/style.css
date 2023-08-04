@@ -100,7 +100,7 @@
 /*-- Variables --*/
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 :root {
-  --color-primary: #525FE1;
+  --color-primary: #33aa4e;
   --color-secondary: #F86F03;
   --color-secondary-alt: #FFF6F4;
   --color-tertiary: #FFA41B;
@@ -125,14 +125,14 @@
   --color-success: #3EB75E;
   --color-danger: #FF0003;
   --color-warning: #FF8F3C;
-  --color-info: #1BA2DB;
+  --color-info: #33aa4e;
   --color-facebook: #3B5997;
-  --color-twitter: #1BA1F2;
+  --color-twitter: #33aa4e;
   --color-youtube: #ED4141;
-  --color-linkedin: #0077B5;
+  --color-linkedin: #33aa4e;
   --color-pinterest: #E60022;
   --color-instagram: #C231A1;
-  --color-vimeo: #00ADEF;
+  --color-vimeo: #33aa4e;
   --color-twitch: #6441A3;
   --color-discord: #7289da;
   --border-width: 2px;
@@ -16743,7 +16743,7 @@ Gallery Item
         margin-left: 0; } }
 
 .eduvibe-footer-one {
-  background: #231F40; }
+  background: #568a5d; }
   .eduvibe-footer-one .shape-image {
     position: absolute;
     z-index: -1; }

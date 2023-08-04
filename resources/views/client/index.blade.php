@@ -39,7 +39,7 @@
                                     <div class="inner">
                                         <div class="thumbnail">
                                             <a href="course-details.html"><img class="w-100"
-                                                    src="assets/images/banner/banner-01/banner-course.jpg"
+                                                    src="assets/images/banner/banner-index/course-33-590x430.webp"
                                                     alt="Course Meta" /></a>
                                             <div class="top-position status-group left-top"><span
                                                     class="eduvibe-status status-01 bg-primary-color">UI Design</span>
@@ -79,7 +79,7 @@
                                 <div class="video-thumbnail eduvibe-hero-one-video">
                                     <div class="thumbnail" data-sal-delay="150" data-sal="slide-up"
                                         data-sal-duration="800">
-                                        <img class="w-100" src="assets/images/banner/banner-01/video-image.png"
+                                        <img class="w-100" src="assets/images/banner/banner-index/video-image-2.png"
                                             alt="Video Images" />
                                     </div>
                                 </div>
@@ -111,9 +111,9 @@
                 <div class="row g-5">
                     <div class="col-lg-6">
                         <div class="about-image-gallery">
-                            <img class="image-1" src="assets/images/about/about-09/about-image-01.jpg"
+                            <img class="image-1" src="assets/images/banner/banner-index/about-image-01-2.jpeg"
                                 alt="About Main Thumb" />
-                            <div class="image-2"><img src="assets/images/about/about-09/about-image-02.jpg"
+                            <div class="image-2"><img src="assets/images/banner/banner-index/about-image-02-2.jpeg"
                                     alt="About Parallax Thumb" /></div>
                             <div class="badge-inner"><img class="image-3"
                                     src="assets/images/about/about-09/badge.png" alt="About Circle Thumb" /></div>
@@ -196,7 +196,7 @@
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="#">
-                                        <img src="assets/images/category/category-01/category-01.jpg"
+                                        <img src="assets/images/banner/banner-index/course-26-590x430.webp"
                                             alt="Service Images">
                                     </a>
                                 </div>
@@ -218,7 +218,7 @@
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="#">
-                                        <img src="assets/images/category/category-01/category-02.jpg"
+                                        <img src="assets/images/banner/banner-index/course-27-590x430.webp"
                                             alt="Service Images">
                                     </a>
                                 </div>
@@ -240,7 +240,7 @@
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="#">
-                                        <img src="assets/images/category/category-01/category-03.jpg"
+                                        <img src="assets/images/banner/banner-index/data-analysis-590x430.webp"
                                             alt="Service Images">
                                     </a>
                                 </div>
@@ -262,7 +262,7 @@
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="#">
-                                        <img src="assets/images/category/category-01/category-04.jpg"
+                                        <img src="assets/images/banner/banner-index/course-29-590x430.webp"
                                             alt="Service Images">
                                     </a>
                                 </div>
@@ -328,7 +328,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="course-details.html">
-                                            <img class="w-100" src="assets/images/course/course-01/course-01.jpg"
+                                            <img class="w-100" src="assets/images/banner/banner-index/course-27-590x430 (1).webp"
                                                 alt="Course Meta">
                                         </a>
                                         <div class="top-position status-group left-top">
@@ -344,7 +344,7 @@
                                             <div class="author-meta">
                                                 <div class="author-thumb">
                                                     <a href="instructor-profile.html">
-                                                        <img src="assets/images/instructor/instructor-small/instructor-1.jpg"
+                                                        <img src="assets/images/banner/banner-index/course-32-590x430.webp"
                                                             alt="Author Images">
                                                         <span class="author-title">James Carlson</span>
                                                     </a>
@@ -384,7 +384,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="course-details.html">
-                                            <img class="w-100" src="assets/images/course/course-01/course-02.jpg"
+                                            <img class="w-100" src="assets/images/banner/banner-index/course-32-590x430.webp"
                                                 alt="Course Meta">
                                         </a>
                                         <div class="top-position status-group left-top">
@@ -494,7 +494,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="course-details.html">
-                                            <img class="w-100" src="assets/images/course/course-01/course-04.jpg"
+                                            <img class="w-100" src="assets/images/banner/banner-index/course-38-590x430.webp"
                                                 alt="Course Meta">
                                         </a>
                                         <div class="top-position status-group left-top">
@@ -548,7 +548,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="course-details.html">
-                                            <img class="w-100" src="assets/images/course/course-01/course-05.jpg"
+                                            <img class="w-100" src="assets/images/banner/banner-index/course-30-590x430.webp"
                                                 alt="Course Meta">
                                         </a>
                                         <div class="top-position status-group left-top">
@@ -602,7 +602,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="course-details.html">
-                                            <img class="w-100" src="assets/images/course/course-01/course-06.jpg"
+                                            <img class="w-100" src="assets/images/banner/banner-index/course-39-590x430.webp"
                                                 alt="Course Meta">
                                         </a>
                                         <div class="top-position status-group left-top">
@@ -692,7 +692,7 @@
                     <div class="col-lg-6 col-12">
                         <div class="satisfied-learner">
                             <div class="thumbnail">
-                                <img src="assets/images/testimonial-section/testimonial-01.jpg"
+                                <img src="assets/images/banner/banner-index/testimonial-01-2.jpeg"
                                     alt="Education Images">
                             </div>
                             <div class="trophy-content bounce-slide">
@@ -826,7 +826,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="instructor-profile.html">
-                                            <img src="assets/images/instructor/instructor-03/instructor-1.jpg"
+                                            <img src="assets/images/banner/banner-index/instructor-03-01-2.webp"
                                                 alt="team images">
                                         </a>
                                     </div>
@@ -855,7 +855,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="instructor-profile.html">
-                                            <img src="assets/images/instructor/instructor-03/instructor-2.jpg"
+                                            <img src="assets/images/banner/banner-index/instructor-03-02-2.webp"
                                                 alt="team images">
                                         </a>
                                     </div>
@@ -885,7 +885,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="instructor-profile.html">
-                                            <img src="assets/images/instructor/instructor-03/instructor-3.jpg"
+                                            <img src="assets/images/banner/banner-index/instructor-03-03-2.webp"
                                                 alt="team images">
                                         </a>
                                     </div>
@@ -913,7 +913,7 @@
                                 <div class="inner">
                                     <div class="thumbnail">
                                         <a href="instructor-profile.html">
-                                            <img src="assets/images/instructor/instructor-03/instructor-4.jpg"
+                                            <img src="assets/images/banner/banner-index/instructor-03-06-2.webp"
                                                 alt="team images">
                                         </a>
                                     </div>
@@ -1018,7 +1018,7 @@
                     <div class="order-1 col-lg-7 col-12 order-lg-2">
                         <div class="feature-thumbnail">
                             <div class="main-image video-popup-wrapper video-popup-two">
-                                <img src="assets/images/videopopup/choose-us-image-01.jpg" alt="Choose Us Images">
+                                <img src="assets/images/banner/banner-index/choose-us-image-01-2.jpeg" alt="Choose Us Images">
                                 <a href="https://www.youtube.com/watch?v=pNje3bWz7V8"
                                     class="video-play-btn with-animation position-to-top btn-large video-popup-activation eduvibe-video-play-icon color-secondary">
                                     <span class="play-icon"></span>
@@ -1131,7 +1131,7 @@
                                 </div>
                                 <div class="thumbnail">
                                     <a href="blog-details.html">
-                                        <img src="assets/images/blog/post-02/post-01.jpg" alt="Blog Images">
+                                        <img src="assets/images/banner/banner-index/course-06-2-590x430.webp" alt="Blog Images">
                                     </a>
                                 </div>
                             </div>
@@ -1161,7 +1161,7 @@
                                 </div>
                                 <div class="thumbnail">
                                     <a href="blog-details.html">
-                                        <img src="assets/images/blog/post-02/post-02.jpg" alt="Blog Images">
+                                        <img src="assets/images/banner/banner-index/course-26-590x430 (1).webp" alt="Blog Images">
                                     </a>
                                 </div>
                             </div>

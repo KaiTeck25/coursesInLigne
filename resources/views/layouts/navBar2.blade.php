@@ -1,10 +1,10 @@
-<header class="edu-header disable-transparent  header-sticky">
+<header class="edu-header disable-transparent header-sticky">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-xl-2 col-md-6 col-6">
                 <div class="logo">
                     <a href="/">
-                        <img class="logo-light" src="assets/images/logo/logo.png" alt="Site Logo">
+                        <img class="logo-light" src="assets/images/logo/logo.png" alt="Site Logo" style="width: 120px;">
                     </a>
                 </div>
             </div>

@@ -28,9 +28,10 @@ class UsersTableSeeder extends Seeder
             'profile_photo_path' => null,
             'current_team_id' => null
         ]);
+
         User::create([
             'name' => 'user',
-            'email' => 'user@tdo.com',
+            'email' => 'user@gmail.com',
             'password' => Hash::make('12345678'),
             'email_verified_at' => time(),
             'status' => '1',

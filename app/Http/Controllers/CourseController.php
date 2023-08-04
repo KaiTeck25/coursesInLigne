@@ -47,7 +47,7 @@ class CourseController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request) // StoreCourseWithEpisodes
     {
         $courseData = $request->except('episodes', 'image'); // Get course data without episodes and image
     
@@ -86,7 +86,7 @@ class CourseController extends Controller
         ]);
     }
 
-    public function update(StoreCourseWithEpisodes $request)
+    public function update(Request $request) // StoreCourseWithEpisodes
     {
         $course = Course::where('id', $request->id)->first();
         $this->authorize('update', $course);
